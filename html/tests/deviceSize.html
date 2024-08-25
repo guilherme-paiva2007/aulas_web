@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tamanho de Tela</title>
+        <link rel="stylesheet" href="../../css/themes.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../js/prototypes.js"></script>
+        <script src="../../js/script.js"></script>
+        <script src="../../js/config.js"></script>
+        <script src="../../js/load.js" defer></script>
+    </head>
+    <body>
+        <p id="height"></p>
+        <p id="width"></p>
+    </body>
+    <script>
+        document.getElementById('height').innerHTML = `${screen.height}, ${screen.availHeight}`
+        document.getElementById('width').innerHTML = `${screen.width}, ${screen.availWidth}`
+    </script>
+</html>
