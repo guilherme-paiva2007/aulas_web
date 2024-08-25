@@ -1,0 +1,177 @@
+html:root {
+    --textPadding: 0.3em;
+    --textBorderRadius: 0.3em;
+}
+
+html:root, html.lightTheme:root {
+    --blue: #0099F5;
+    --blueVar1: #53AAE0;
+    --blueVar2: #AAD7F5;
+    --yellow: #EFD900;
+    --yellowVar1: #E1D14C;
+    --yellowVar2: #EAE29A;
+    --red: #F51101;
+    --redVar1: #E55147;
+    --redVar2: #E59F9B;
+    --green: #01F542;
+    --greenVar1: #4DF079;
+    --greenVar2: #9AEBAF;
+    --orange: #E07B00;
+    --orangeVar1: #E5A04C;
+    --orangeVar2: #F0C696;
+    --purple: #6E00FF;
+    --purpleVar1: #8E50E6;
+    --purpleVar2: #BE9EE5;
+
+    --blue_reverse: #0085D8;
+    --blueVar1_reverse: #3D7EA6;
+    --blueVar2_reverse: #6D8A9D;
+    --yellow_reverse: #D3BE00;
+    --yellowVar1_reverse: #A59A38;
+    --yellowVar2_reverse: #938E61;
+    --red_reverse: #D80E00;
+    --redVar1_reverse: #AA3C35;
+    --redVar2_reverse: #8E6360;
+    --green_reverse: #00BD32;
+    --greenVar1_reverse: #31994D;
+    --greenVar2_reverse: #4E7759;
+    --orange_reverse: #C36B00;
+    --orangeVar1_reverse: #AB7839;
+    --orangeVar2_reverse: #987E60;
+    --purple_reverse: #6200E2;
+    --purpleVar1_reverse: #6A3CAB;
+    --purpleVar2_reverse: #76628E;
+
+    --grey: rgb(200, 200, 200);
+    --greyFilter1: rgba(200, 200, 200, 0.5);
+    --greyFilter2: rgba(200, 200, 200, 0.3);
+    --greyFilter3: rgba(200, 200, 200, 0.8);
+    --lightC: rgb(255, 255, 255);
+    --lightCFilter1: rgba(255, 255, 255, 0.5);
+    --lightCFilter2: rgba(255, 255, 255, 0.3);
+    --lightCFilter3: rgba(255, 255, 255, 0.8);
+    --reverseC: rgb(0, 0, 0);
+    --reverseCFilter1: rgba(0, 0, 0, 0.5);
+    --reverseCFilter2: rgba(0, 0, 0, 0.3);
+    --reverseCFilter3: rgba(0, 0, 0, 0.8);
+
+    --white: rgb(255, 255, 255);
+    --whiteFilter1: rgba(255, 255, 255, 0.5);
+    --whiteFilter2: rgba(255, 255, 255, 0.3);
+    --whiteFilter3: rgba(255, 255, 255, 0.8);
+    --black: rgb(0, 0, 0);
+    --blackFilter1: rgba(0, 0, 0, 0.5);
+    --blackFilter2: rgba(0, 0, 0, 0.3);
+    --blackFilter3: rgba(0, 0, 0, 0.8);
+}
+
+html.darkTheme:root {
+    --blue: #0085D8;
+    --blueVar1: #3D7EA6;
+    --blueVar2: #6D8A9D;
+    --yellow: #D3BE00;
+    --yellowVar1: #A59A38;
+    --yellowVar2: #938E61;
+    --red: #D80E00;
+    --redVar1: #AA3C35;
+    --redVar2: #8E6360;
+    --green: #00BD32;
+    --greenVar1: #31994D;
+    --greenVar2: #4E7759;
+    --orange: #C36B00;
+    --orangeVar1: #AB7839;
+    --orangeVar2: #987E60;
+    --purple: #6200E2;
+    --purpleVar1: #6A3CAB;
+    --purpleVar2: #76628E;
+
+    --blue_reverse: #0099F5;
+    --blueVar1_reverse: #53AAE0;
+    --blueVar2_reverse: #AAD7F5;
+    --yellow_reverse: #EFD900;
+    --yellowVar1_reverse: #E1D14C;
+    --yellowVar2_reverse: #EAE29A;
+    --red_reverse: #F51101;
+    --redVar1_reverse: #E55147;
+    --redVar2_reverse: #E59F9B;
+    --green_reverse: #01F542;
+    --greenVar1_reverse: #4DF079;
+    --greenVar2_reverse: #9AEBAF;
+    --orange_reverse: #E07B00;
+    --orangeVar1_reverse: #E5A04C;
+    --orangeVar2_reverse: #F0C696;
+    --purple_reverse: #6E00FF;
+    --purpleVar1_reverse: #8E50E6;
+    --purpleVar2_reverse: #BE9EE5;
+
+    --grey: rgb(120, 120, 120);
+    --greyFilter1: rgba(120, 120, 120, 0.5);
+    --greyFilter2: rgba(120, 120, 120, 0.3);
+    --greyFilter3: rgba(120, 120, 120, 0.8);
+    --reverseC: rgb(255, 255, 255);
+    --reverseCFilter1: rgba(255, 255, 255, 0.5);
+    --reverseCFilter2: rgba(255, 255, 255, 0.3);
+    --reverseCFilter3: rgba(255, 255, 255, 0.8);
+    --lightC: rgb(0, 0, 0);
+    --lightCFilter1: rgba(0, 0, 0, 0.5);
+    --lightCFilter2: rgba(0, 0, 0, 0.3);
+    --lightCFilter3: rgba(0, 0, 0, 0.8);
+}
+
+html.beigeTheme:root {
+    --lightC: beige;
+}
+
+html.blueMain {
+    --mainColor: var(--blue);
+    --mainColorVar1: var(--blueVar1);
+    --mainColorVar2: var(--blueVar2);
+    --mainColor_reverse: var(--blue_reverse);
+    --mainColorVar1_reverse: var(--blueVar1_reverse);
+    --mainColorVar2_reverse: var(--blueVar2_reverse);
+}
+
+html.yellowMain {
+    --mainColor: var(--yellow);
+    --mainColorVar1: var(--yellowVar1);
+    --mainColorVar2: var(--yellowVar2);
+    --mainColor_reverse: var(--yellow_reverse);
+    --mainColorVar1_reverse: var(--yellowVar1_reverse);
+    --mainColorVar2_reverse: var(--yellowVar2_reverse);
+}
+
+html.redMain {
+    --mainColor: var(--red);
+    --mainColorVar1: var(--redVar1);
+    --mainColorVar2: var(--redVar2);
+    --mainColor_reverse: var(--red_reverse);
+    --mainColorVar1_reverse: var(--redVar1_reverse);
+    --mainColorVar2_reverse: var(--redVar2_reverse);
+}
+
+html.greenMain {
+    --mainColor: var(--green);
+    --mainColorVar1: var(--greenVar1);
+    --mainColorVar2: var(--greenVar2);
+    --mainColor_reverse: var(--green_reverse);
+    --mainColorVar1_reverse: var(--greenVar1_reverse);
+    --mainColorVar2_reverse: var(--greenVar2_reverse);
+}
+
+html.purpleMain {
+    --mainColor: var(--purple);
+    --mainColorVar1: var(--purpleVar1);
+    --mainColorVar2: var(--purpleVar2);
+    --mainColor_reverse: var(--purple_reverse);
+    --mainColorVar1_reverse: var(--purpleVar1_reverse);
+    --mainColorVar2_reverse: var(--purpleVar2_reverse);
+}
+
+html.orangeMain {
+    --mainColor: var(--orange);
+    --mainColorVar1: var(--orangeVar1);
+    --mainColorVar2: var(--orangeVar2);
+    --mainColor_reverse: var(--orange_reverse);
+    --mainColorVar1_reverse: var(--orangeVar1_reverse);
+    --mainColorVar2_reverse: var(--orangeVar2_reverse);
+}

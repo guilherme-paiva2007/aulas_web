@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Demonstração de Cores</title>
+        <link rel="stylesheet" href="../../css/themes.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../js/prototypes.js"></script>
+        <script src="../../js/script.js"></script>
+        <script src="../../js/config.js"></script>
+        <script src="../../js/load.js" defer></script>
+    </head>
+    <body class="colorDisplay">
+        <header class="ignoreWrite">
+            <div class="line control">
+                <!-- <button onclick="theme.toggle()">alternar</button> -->
+                <select name="mainColorSelector" onchange="processValue(value => theme.setColor(value))">
+                    <option value="red">red</option>
+                    <option value="orange">orange</option>
+                    <option value="yellow">yellow</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="purple">purple</option>
+                </select>
+                <select name="themeSelector" onchange="processValue(value => theme.set(value))">
+                    <option value="light">light</option>
+                    <option value="dark">dark</option>
+                    <!-- <option value="beige">beige</option> -->
+                </select>
+            </div>
+        </header>
+
+        <div class="line">
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--blue);">blue</div>
+                <div class="displayBlock" style="background-color: var(--blueVar1);">blue-var1</div>
+                <div class="displayBlock" style="background-color: var(--blueVar2);">blue-var2</div>
+            </div>
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--yellow);">yellow</div>
+                <div class="displayBlock" style="background-color: var(--yellowVar1);">yellow-var1</div>
+                <div class="displayBlock" style="background-color: var(--yellowVar2);">yellow-var2</div>
+            </div>
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--red);">red</div>
+                <div class="displayBlock" style="background-color: var(--redVar1);">red-var1</div>
+                <div class="displayBlock" style="background-color: var(--redVar2);">red-var2</div>
+            </div>
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--green);">green</div>
+                <div class="displayBlock" style="background-color: var(--greenVar1);">green-var1</div>
+                <div class="displayBlock" style="background-color: var(--greenVar2);">green-var2</div>
+            </div>
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--purple);">purple</div>
+                <div class="displayBlock" style="background-color: var(--purpleVar1);">purple-var1</div>
+                <div class="displayBlock" style="background-color: var(--purpleVar2);">purple-var2</div>
+            </div>
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--orange);">orange</div>
+                <div class="displayBlock" style="background-color: var(--orangeVar1);">orange-var1</div>
+                <div class="displayBlock" style="background-color: var(--orangeVar2);">orange-var2</div>
+            </div>
+        </div>
+        <hr>
+        <div class="line">
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--grey);">grey</div>
+                <div class="displayBlock" style="background-color: var(--greyFilter1);">grey-filter1</div>
+                <div class="displayBlock" style="background-color: var(--greyFilter2);">grey-filter2</div>
+                <div class="displayBlock" style="background-color: var(--greyFilter3);">grey-filter3</div>
+            </div>
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--lightC);">light</div>
+                <div class="displayBlock" style="background-color: var(--lightCFilter1);">light-filter1</div>
+                <div class="displayBlock" style="background-color: var(--lightCFilter2);">light-filter2</div>
+                <div class="displayBlock" style="background-color: var(--lightCFilter3);">light-filter3</div>
+            </div>
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--reverseC);">reverse</div>
+                <div class="displayBlock" style="background-color: var(--reverseCFilter1);">reverse-filter1</div>
+                <div class="displayBlock" style="background-color: var(--reverseCFilter2);">reverse-filter2</div>
+                <div class="displayBlock" style="background-color: var(--reverseCFilter3);">reverse-filter3</div>
+            </div>
+        </div>
+        <hr>
+        <div class="line">
+            <div class="displayContainer">
+                <div class="displayBlock" style="background-color: var(--mainColor);">main</div>
+                <div class="displayBlock" style="background-color: var(--mainColorVar1);">main-var1</div>
+                <div class="displayBlock" style="background-color: var(--mainColorVar2);">main-var2</div>
+            </div>
+        </div>
+    </body>
+</html>

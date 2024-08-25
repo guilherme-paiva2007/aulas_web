@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Área de Teste</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/themes.css">
+        <script src="./js/prototypes.js"></script>
+        <script src="./js/script.js"></script>
+        <script src="./js/config.js"></script>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                gap: 26px;
+                background-color: black;
+                margin: 0;
+            }
+            section {
+                padding: 12px 0;
+                background-color: white;
+            }
+            h1 {
+                text-align: center;
+            }
+            div.upperSection {
+                margin: 0 24px;
+            }
+            div.upperSection * {
+                display: inline;
+            }
+            div.upperSection h1 {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <section title="Header">
+            <header>
+                <div class="imagemInexistente"></div>
+                <p><a href="./configuracoes.html">Configurações</a></p>
+            </header>
+        </section>
+        <section title="SideBar">
+            
+        </section>
+        <section title="Background">
+            <div id="htmlSimulator">
+                <div id="bodySimulator"></div>
+            </div>
+        </section>
+        <h1>Testeee</h1>
+    </body>
+    <script>
+        theme.load()
+        document.getElementsByTagName('section').forEach(section => {
+            if (section.title) {
+                section.innerHTML = `<div class="upperSection"><h1>${section.title}</h1></div>`+ "<hr>" + section.innerHTML;
+            }
+        })
+    </script>
+</html>

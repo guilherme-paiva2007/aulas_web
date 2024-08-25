@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    transition: 0.3s;
+}
+
+html {
+    background-color: var(--mainColorVar1);
+}
+
+body {
+    background-color: var(--lightCFilter3);
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--mainColorVar1);
+    padding: 12px 4px;
+}
+
+header a, header p {
+    color: var(--white);
+    font-weight: bold;
+    padding: var(--textPadding);
+    border-radius: var(--textBorderRadius);
+}
+
+header a:hover {
+    background-color: var(--mainColorVar1_reverse);
+}
+
+main {
+    min-height: 100vh;
+}
+
+
+
+/* Tests */
+div.displayContainer {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+}
+
+div.translucidContainer {
+    background-color: cadetblue;
+    color: purple
+}
+
+div.displayBlock {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.line {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.line.control {
+    padding: 12px 4px;
+}
+
+div.line.control select {
+    padding: 4px;
+    margin: 0 12px;
+}
+
+body.colorDisplay {
+    min-height: 100vh;
+    min-width: fit-content;
+}
+
+body.colorDisplay select {
+    outline-color: var(--mainColor_reverse);
+    border-color: var(--mainColor);
+}
+
+html.darkTheme body.colorDisplay {
+    color: white;
+}
+
+html.darkTheme body.colorDisplay div[style*="reverseC"] {
+    color: black;
+}
+
+html.lightTheme body.colorDisplay div[style*="reverseC"] {
+    color: white;
+}
+
+@media (max-width: 420px) {
+    div.displayContainer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    div.displayBlock {
+        height: auto;
+        padding: 12px 0;
+    }
+}
+
+@media (max-height: 420px) {
+    div.displayContainer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    div.displayBlock {
+        height: auto;
+        padding: 8px 0;
+    }
+    div.line {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    body.colorDisplay header {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}
+
+#htmlSimulator {
+    background-color: var(--mainColorVar1);
+    height: 50vh;
+}
+
+#bodySimulator {
+    background-color: var(--lightCFilter3);
+    height: 100%;
+}
