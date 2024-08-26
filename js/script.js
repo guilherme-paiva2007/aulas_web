@@ -110,6 +110,8 @@ class patternElement {
         switch (this.type) {
             case "id":
                 let element = document.getElementById(this.target);
+                if (!element) return;
+                if (!element.classList) return;
                 if (element.classList.contains('ignoreWrite')) return;
                 element.innerHTML = this.value
                 break;
