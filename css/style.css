@@ -3,6 +3,11 @@
     transition: 0.3s;
 }
 
+*::selection {
+    color: var(--white);
+    background-color: var(--mainColorVar1_reverse);
+}
+
 html {
     background-color: var(--mainColorVar1);
 }
@@ -11,29 +16,105 @@ body {
     background-color: var(--lightCFilter3);
 }
 
-/* Header */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: var(--mainColorVar1);
-    padding: 12px 4px;
-}
-
-header a, header p {
-    color: var(--white);
-    font-weight: bold;
-    padding: var(--textPadding);
-    border-radius: var(--textBorderRadius);
-}
-
-header a:hover {
-    background-color: var(--mainColorVar1_reverse);
-}
-
+/* Main */
 main {
     min-height: 100vh;
 }
+
+/* Header */
+header {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-areas: "img links";
+    background-color: var(--mainColorVar1);
+    padding: 12px 4px;
+    position: sticky;
+    top: 0;
+}
+
+header button {
+    grid-area: links;
+    color: var(--white);
+    font-weight: bold;
+    background-color: transparent;
+    border: 0;
+    padding: var(--buttonPadding);
+    border-radius: var(--buttonBorderRadius);
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header button {
+    display: flex;
+    align-items: center;
+}
+
+header button div {
+    display: inline;
+    height: var(--headerSVGSize);
+}
+
+header svg {
+    height: var(--headerSVGSize);
+    width: var(--headerSVGSize);
+    pointer-events: none;
+    border-radius: var(--buttonBorderRadius);
+}
+
+header button:hover {
+    background-color: var(--mainColorVar1_reverse);
+}
+
+/* Inputs */
+
+input {
+    background-color: var(--mainColorVar2);
+    border-radius: var(--textBorderRadius);
+    border-color: var(--mainColorVar2_reverse);
+    border-style: solid;
+    padding: var(--textPadding);
+}
+
+input:hover, input:focus {
+    outline-color: var(--mainColor_reverse);
+    outline-style: solid;
+    transition: 0s;
+}
+
+input:invalid {
+    background-color: var(--mainColorVar2_reverse);
+    border-color: var(--mainColorVar1_reverse);
+}
+
+input.genericColor {
+    background-color: var(--blueVar2);
+    border-color: var(--blueVar2_reverse);
+}
+
+input.genericColor:hover, input.genericColor:focus {
+    outline-color: var(--blue_reverse);
+}
+
+input.genericColor:invalid {
+    background-color: var(--redVar2);
+    border-color: var(--redVar2_reverse);
+    outline-color: var(--redVar1_reverse);
+}
+
+
+/* Media Queries */
+@media (max-width: 420px) {
+    header button p {
+        width: 0px;
+        overflow: hidden;
+    }
+}
+
+
 
 
 
@@ -41,7 +122,6 @@ main {
 div.displayContainer {
     display: flex;
     padding: 10px;
-    width: 100%;
 }
 
 div.translucidContainer {
@@ -79,6 +159,7 @@ body.colorDisplay {
 body.colorDisplay select {
     outline-color: var(--mainColor_reverse);
     border-color: var(--mainColor);
+    border-radius: var(--textBorderRadius);
 }
 
 html.darkTheme body.colorDisplay {
@@ -94,6 +175,9 @@ html.lightTheme body.colorDisplay div[style*="reverseC"] {
 }
 
 @media (max-width: 420px) {
+    body.colorDisplay {
+        height: 100vh;
+    }
     div.displayContainer {
         flex-wrap: wrap;
         justify-content: center;
@@ -105,6 +189,9 @@ html.lightTheme body.colorDisplay div[style*="reverseC"] {
 }
 
 @media (max-height: 420px) {
+    body.colorDisplay {
+        height: 100vh;
+    }
     div.displayContainer {
         flex-wrap: wrap;
         justify-content: center;
@@ -123,12 +210,24 @@ html.lightTheme body.colorDisplay div[style*="reverseC"] {
     }
 }
 
-#htmlSimulator {
+.positionBox {
+    height: 50vh;
+    width: 50vh;
+    position: relative;
+    margin: auto;
+    border: 2px solid var(--mainColor);
+}
+
+.positionBox_inside {
+    position: absolute;
+}
+
+.htmlSimulator {
     background-color: var(--mainColorVar1);
     height: 50vh;
 }
 
-#bodySimulator {
+.bodySimulator {
     background-color: var(--lightCFilter3);
     height: 100%;
 }

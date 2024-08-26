@@ -83,6 +83,12 @@ inputs.loadChecked = function inputAutoLoad(inputName, requiredValue, selectElem
     })
 }
 
+// Navigation
+
+function navigateTo(destination) {
+    window.location.href = destination;
+}
+
 // Pattern Classes
 
 class patternList {
@@ -103,18 +109,19 @@ class patternElement {
     write() {
         switch (this.type) {
             case "id":
-                if (element.classList.contains('ignoreWrite')) return
-                document.getElementById(this.target).innerHTML = this.value
+                let element = document.getElementById(this.target);
+                if (element.classList.contains('ignoreWrite')) return;
+                element.innerHTML = this.value
                 break;
             case "class":
                 document.getElementsByClassName(this.target).forEach(element => {
-                    if (element.classList.contains('ignoreWrite')) return
+                    if (element.classList.contains('ignoreWrite')) return;
                     element.innerHTML = this.value}
                 )
                 break;
             case "tag":
                 document.getElementsByTagName(this.target).forEach(element => {
-                    if (element.classList.contains('ignoreWrite')) return
+                    if (element.classList.contains('ignoreWrite')) return;
                     element.innerHTML = this.value}
                 )
                 break;

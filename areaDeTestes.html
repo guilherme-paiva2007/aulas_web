@@ -9,6 +9,7 @@
         <script src="./js/prototypes.js"></script>
         <script src="./js/script.js"></script>
         <script src="./js/config.js"></script>
+        <script src="./js/load.js" defer></script>
         <style>
             body {
                 display: flex;
@@ -36,24 +37,59 @@
         </style>
     </head>
     <body>
+        <div class="provisoreButtons"></div>
         <section title="Header">
-            <header>
-                <div class="imagemInexistente"></div>
-                <p><a href="./configuracoes.html">Configurações</a></p>
-            </header>
-        </section>
-        <section title="SideBar">
-            
-        </section>
-        <section title="Background">
-            <div id="htmlSimulator">
-                <div id="bodySimulator"></div>
+            <div class="htmlSimulator">
+                <div class="bodySimulator">
+                    <header class="ignoreWrite">
+                        <div class="imagemInexistente">
+
+                        </div>
+                        <nav>
+                            <button onclick="navigateTo('./configuracoes.html')"><div id="headerMenuIcon"></div><p>Configurações</p></button>
+                            <button onclick="navigateTo('./configuracoes.html')"><div id="headerConfigIcon"></div><p>Configurações</p></button>
+                        </nav>
+                    </header>
+                    <br>
+                    <p>ASD</p>
+                </div>
             </div>
         </section>
-        <h1>Testeee</h1>
+        <section title="SideBar">
+            <div class="htmlSimulator">
+                <div class="bodySimulator">
+                    <nav id="sidebar"></nav>
+                </div>
+            </div>
+        </section>
+        <section title="Background">
+            <div class="htmlSimulator">
+                <div class="bodySimulator"></div>
+            </div>
+        </section>
+        <section title="Position Box">
+            <div class="positionBox">
+                <p class="positionBox_inside" style="right: 0; top: 0;">Right-Top</p>
+                <p class="positionBox_inside" style="right: 0; bottom: 0;">Right-Bottom</p>
+                <p class="positionBox_inside" style="left: 0; top: 0;">Left-Top</p>
+                <p class="positionBox_inside" style="left: 0; bottom: 0;">Left-Bottom</p>
+                <p class="positionBox_inside" style="top: 50%; bottom: 50%; right: 0;">Right</p>
+                <p class="positionBox_inside" style="top: 50%; bottom: 50%; left: 0;">Left</p>
+                <p class="positionBox_inside" style="right: 50%; left: 50%; top: 0;">Top</p>
+                <p class="positionBox_inside" style="right: 50%; left: 50%; bottom: 0;">Bottom</p>
+                <p class="positionBox_inside" style="top: 50%; bottom:50% ; right: 50%; left: 50%;">Center</p>
+            </div>
+        </section>
+        <section title="Inputs">
+            <div class="htmlSimulator">
+                <div class="bodySimulator">
+                    <input type="text" pattern="[a-z]{8,8}">
+                    <input type="text" pattern="[a-z]{8,8}" style="margin: 8px" class="genericColor">
+                </div>
+            </div>
+        </section>
     </body>
     <script>
-        theme.load()
         document.getElementsByTagName('section').forEach(section => {
             if (section.title) {
                 section.innerHTML = `<div class="upperSection"><h1>${section.title}</h1></div>`+ "<hr>" + section.innerHTML;

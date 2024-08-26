@@ -1,6 +1,9 @@
 html:root {
     --textPadding: 0.3em;
+    --buttonPadding: calc(var(--textPadding) * 1.5);
     --textBorderRadius: 0.3em;
+    --buttonBorderRadius: var(--textBorderRadius);
+    --headerSVGSize: 24px;
 }
 
 html:root, html.lightTheme:root {
