@@ -68,6 +68,19 @@ html.lightTheme:root, html.darkTheme:root {
     --lightCFilter1_darkTheme: rgba(0, 0, 0, 0.5);
     --lightCFilter2_darkTheme: rgba(0, 0, 0, 0.3);
     --lightCFilter3_darkTheme: rgba(0, 0, 0, 0.8);
+
+    --grey: rgb(200, 200, 200);
+    --greyFilter1: rgba(200, 200, 200, 0.5);
+    --greyFilter2: rgba(200, 200, 200, 0.3);
+    --greyFilter3: rgba(200, 200, 200, 0.8);
+    --white: rgb(255, 255, 255);
+    --whiteFilter1: rgba(255, 255, 255, 0.5);
+    --whiteFilter2: rgba(255, 255, 255, 0.3);
+    --whiteFilter3: rgba(255, 255, 255, 0.8);
+    --black: rgb(0, 0, 0);
+    --blackFilter1: rgba(0, 0, 0, 0.5);
+    --blackFilter2: rgba(0, 0, 0, 0.3);
+    --blackFilter3: rgba(0, 0, 0, 0.8);
 }
 
 html:root, html.lightTheme:root {

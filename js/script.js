@@ -108,15 +108,23 @@ class patternList {
 }
 
 class patternElement {
-    constructor(target, type, value) {
+    constructor(target, type, rewriteType = "overwrite", value) {
         this.target = target;
         this.type = type;
         this.value = value;
+        this.rewriteType = rewriteType;
+        if (!this.rewriteType.isIn(["overwrite", "after", "before"])) this.rewriteType = "overwrite";
     }
     write() {
+        function posValue(element, value, type) {
+            if (type == "before") return value + element.innerHTML;
+            if (type == "after") return element.innerHTML + value;
+            return value;
+        }
         switch (this.type) {
             case "id":
                 let element = document.getElementById(this.target);
+                this.value = posValue(element, this.value, this.rewriteType);
                 if (!element) return;
                 if (!element.classList) return;
                 if (element.classList.contains('ignorePatternWrite')) return;
@@ -124,12 +132,14 @@ class patternElement {
                 break;
             case "class":
                 document.getElementsByClassName(this.target).forEach(element => {
+                    this.value = posValue(element, this.value, this.rewriteType);
                     if (element.classList.contains('ignorePatternWrite')) return;
                     element.innerHTML = this.value}
                 )
                 break;
             case "tag":
                 document.getElementsByTagName(this.target).forEach(element => {
+                    this.value = posValue(element, this.value, this.rewriteType);
                     if (element.classList.contains('ignorePatternWrite')) return;
                     element.innerHTML = this.value}
                 )

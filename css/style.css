@@ -12,31 +12,59 @@ html {
     background-color: var(--mainColorVar1);
 }
 
-body {
+/* body {
+} */
+
+#limitedBody {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+/* Main and Sidebar */
+main {
+    width: 100%;
+    height: 100%;
     background-color: var(--lightCFilter3);
 }
 
-/* Main */
-main {
-    min-height: 100vh;
+#sidebar {
+    padding: 40px;
+    background-color: var(--reverseCFilter2);
+}
+
+#div-sidebarMain {
+    display: flex;
+    gap: 24px;
+    height: max-content;
+    height: 100%;
+    width: 100vw;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+#div-sidebarMain main, #div-sidebarMain #sidebar {
+    overflow-y: auto;
 }
 
 /* Header */
 header {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-template-areas: "img links";
+    grid-template-columns: 1fr 2fr 1.5fr;
+    grid-template-areas: "empty img nav";
     background-color: var(--mainColorVar1);
     padding: 12px 4px;
     position: sticky;
     top: 0;
 }
 
-header button {
-    grid-area: links;
+header img, header .imagemInexistente {
+    grid-area: img;
 }
 
 header nav {
+    grid-area: nav;
     display: flex;
     align-items: center;
 }
@@ -119,6 +147,10 @@ button {
 button *:not(span) {
     display: inline;
     height: var(--headerSVGSize);
+}
+
+button span {
+    margin-left: 0.5em;
 }
 
 button:hover:not(.button-ignoreHover), button:focus:not(.button-ignoreHover) {
