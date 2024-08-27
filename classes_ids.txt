@@ -1,0 +1,14 @@
+--------PAGE STRUCTURE
+    #sidebar
+    .summary-heading{1-6}
+
+--------FUNCTION IGNORE
+inputs.applyEmptyPlaceholder
+    .ignorePlaceholderWrite
+
+patternElement class:
+    .ignorePatternWrite
+
+--------TESTS
+    .htmlSimulator
+    .bodySimulator

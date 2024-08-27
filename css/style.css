@@ -30,8 +30,10 @@ main {
 }
 
 #sidebar {
-    padding: 40px;
+    padding: 40px 20px;
     background-color: var(--reverseCFilter2);
+    width: 15%;
+    color: white;
 }
 
 #div-sidebarMain {
@@ -47,6 +49,19 @@ main {
 #div-sidebarMain main, #div-sidebarMain #sidebar {
     overflow-y: auto;
 }
+
+#sidebar article {
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
+}
+
+#sidebar .summary-heading1 { text-indent: 0; }
+#sidebar .summary-heading2 { margin-left: 0.5em; }
+#sidebar .summary-heading3 { text-indent: 1em; }
+#sidebar .summary-heading4 { text-indent: 1.5em; }
+#sidebar .summary-heading5 { text-indent: 2em; }
+#sidebar .summary-heading6 { text-indent: 2.5em; }
 
 /* Header */
 header {

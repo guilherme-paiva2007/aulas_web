@@ -86,6 +86,8 @@ inputs.loadChecked = function inputAutoLoad(inputName, requiredValue, selectElem
 inputs.applyEmptyPlaceholder = function inputApplyPlaceholder() {
     document.getElementsByTagName('input').forEach(element => {
         if (!element.placeholder == "") return;
+        // if (!element.required) return;
+        if (element.classList.contains('ignorePlaceholderWrite')) return;
         element.placeholder = "";
     })
 }
