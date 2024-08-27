@@ -83,6 +83,13 @@ inputs.loadChecked = function inputAutoLoad(inputName, requiredValue, selectElem
     })
 }
 
+inputs.applyEmptyPlaceholder = function inputApplyPlaceholder() {
+    document.getElementsByTagName('input').forEach(element => {
+        if (!element.placeholder == "") return;
+        element.placeholder = "";
+    })
+}
+
 // Navigation
 
 function navigateTo(destination) {
@@ -110,18 +117,18 @@ class patternElement {
         switch (this.type) {
             case "id":
                 let element = document.getElementById(this.target);
-                if (element.classList.contains('ignoreWrite')) return;
+                if (element.classList.contains('ignorePatternWrite')) return;
                 element.innerHTML = this.value
                 break;
             case "class":
                 document.getElementsByClassName(this.target).forEach(element => {
-                    if (element.classList.contains('ignoreWrite')) return;
+                    if (element.classList.contains('ignorePatternWrite')) return;
                     element.innerHTML = this.value}
                 )
                 break;
             case "tag":
                 document.getElementsByTagName(this.target).forEach(element => {
-                    if (element.classList.contains('ignoreWrite')) return;
+                    if (element.classList.contains('ignorePatternWrite')) return;
                     element.innerHTML = this.value}
                 )
                 break;
