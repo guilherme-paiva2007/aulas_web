@@ -12,10 +12,7 @@ html {
     background-color: var(--mainColorVar1);
 }
 
-/* body {
-} */
-
-#limitedBody {
+body {
     display: flex;
     flex-direction: column;
     height: 100vh;

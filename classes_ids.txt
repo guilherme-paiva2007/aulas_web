@@ -2,6 +2,11 @@
     #sidebar
     .summary-heading{1-6}
 
+--------THEME
+theme.load
+    "mainColorSelector"
+    "themeSelector"
+
 --------FUNCTION IGNORE
 inputs.applyEmptyPlaceholder
     .ignorePlaceholderWrite
