@@ -1,7 +1,7 @@
     // Storage
 
-let storage = {};
-let storagePrefix = "aulasweb" + "_"
+const storage = {};
+storage.prefix = "aulasweb" + "_"
 
 /**
  * Salva um valor no armazenamento do navegador - `window`
@@ -19,10 +19,10 @@ storage.set = function storageSaveInfo(infoName, info, storageType) {
 
     switch (storageType) {
         case "local":
-            localStorage.setItem(storagePrefix + infoName, info);
+            localStorage.setItem(storage.prefix + infoName, info);
             break;
         case "session":
-            sessionStorage.setItem(storagePrefix + infoName, info);
+            sessionStorage.setItem(storage.prefix + infoName, info);
             break;
         default:
             console.log(`Escrita de ${infoName} falha: Não possível definir tipo de armazenamento`);
@@ -43,10 +43,10 @@ storage.get = function storageGetInfo(infoName, targetStorage) {
 
     switch (targetStorage) {
         case "local":
-            return localStorage.getItem(storagePrefix + infoName);
+            return localStorage.getItem(storage.prefix + infoName);
             break;
         case "session":
-            return sessionStorage.getItem(storagePrefix + infoName);
+            return sessionStorage.getItem(storage.prefix + infoName);
             break;
         default:
             break;
@@ -54,7 +54,7 @@ storage.get = function storageGetInfo(infoName, targetStorage) {
 }
 
 /**
- * Remove um 
+ * Remove uma linha de armazenamento
  * @param {String} infoName 
  * @param {"local"|"session"} targetStorage 
  * @returns {void}
@@ -66,10 +66,10 @@ storage.remove = function storageRemoveInfo(infoName, targetStorage) {
 
     switch (targetStorage) {
         case "local":
-            return localStorage.removeItem(storagePrefix + infoName);
+            return localStorage.removeItem(storage.prefix + infoName);
             break;
         case "session":
-            return sessionStorage.removeItem(storagePrefix + infoName);
+            return sessionStorage.removeItem(storage.prefix + infoName);
             break;
         default:
             break;
@@ -77,19 +77,19 @@ storage.remove = function storageRemoveInfo(infoName, targetStorage) {
 }
 
 /**
- * LImpa o armazenamento local em todos os índices da inovapay
+ * Limpa o armazenamento local em todos os índices
  * @param {"both"|"local"|"session"} storageType Tipo do armazenamento a ser apagado (`both` como padrão)
  * @returns {void}
  */
 storage.clear = function storageClear(storageType = "both") {
     function clearLocal() {
         Object.keys(localStorage).forEach(key => {
-            if (key.startsWith(storagePrefix)) localStorage.removeItem(key)
+            if (key.startsWith(storage.prefix)) localStorage.removeItem(key)
         })
     }
     function clearSession() {
         Object.keys(sessionStorage).forEach(key => {
-            if (key.startsWith(storagePrefix)) sessionStorage.removeItem(key)
+            if (key.startsWith(storage.prefix)) sessionStorage.removeItem(key)
         })
     }
 
@@ -122,102 +122,64 @@ storage.fullClear = () => { storage.clear('both') }
     // Theme Object and Methods
 
 const theme = {}
+theme.color = {}
 
 theme.list = ['light', 'dark', 'beige']
-theme.colorList = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+theme.default = 'light'
+theme.color.list = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+theme.color.default = 'blue'
 
-theme.set = function setTheme(themeName) { // Arrumar com o novo objeto storage
-    let rewrited = false;
+/**
+ * Define o tema mostrado no site
+ * @param {String} themeName 
+ */
+theme.set = function themeSet(themeName) {
+    if (typeof themeName !== 'string') themeName = theme.default;
+    if (!themeName.isIn(theme.list)) themeName = theme.default;
 
-    if (localStorage.theme == undefined) { localStorage.setItem('theme', ""); rewrited = true;}
-    if (!localStorage.theme.isIn(theme.list)) { localStorage.theme = "light"; rewrited = true;}
+    storage.localSet('theme', themeName);
 
-    if (rewrited) themeName = localStorage.theme
+    theme.list.forEach(themeInList => {
+        document.getElementsByTagName('html')[0].classList.remove(themeInList + "Theme")
 
-    themeName = themeName.toLowerCase().split('Theme').join('')
-    if (!themeName.isIn(theme.list)) {
-        themeName = localStorage.theme;
-    }
-    
-    localStorage.setItem("theme", themeName);
-    theme.list.forEach(_themeName => {
-        if (_themeName == themeName) {
+        if (themeInList == themeName) {
             document.getElementsByTagName('html')[0].classList.add(themeName + "Theme")
-        } else {
-            document.getElementsByTagName('html')[0].classList.remove(_themeName + "Theme")
+        }
+    })
+};
+
+theme.color.set = function themeColorSet(colorName) {
+    if (typeof colorName !== "string") colorName = theme.color.default
+    if (!colorName.isIn(theme.color.list)) colorName = theme.color.default
+
+    storage.localSet('theme-color', colorName)
+
+    theme.color.list.forEach(colorInList => {
+        document.getElementsByTagName('html')[0].classList.remove(colorInList + 'Main')
+
+        if (colorInList == colorName) {       
+            document.getElementsByTagName('html')[0].classList.add(colorInList + 'Main')
         }
     })
 }
 
-theme.setColor = function setMainColor(mainColor) {
-    let rewrited = false;
-
-    if (localStorage.mainColor == undefined) { localStorage.setItem('mainColor', ''); rewrited = true; }
-    if (!localStorage.mainColor.isIn(theme.colorList)) { localStorage.setItem('mainColor', 'blue'); rewrited = true; }
-
-    if (rewrited) mainColor = localStorage.mainColor;
-    
-    mainColor = mainColor.toLowerCase().split('Main').join('')
-
-    localStorage.setItem('mainColor', mainColor);
-    theme.colorList.forEach(_mainColor => {
-        if (_mainColor == mainColor) {
-            document.getElementsByTagName('html')[0].classList.add(mainColor + "Main")
-        } else {
-            document.getElementsByTagName('html')[0].classList.remove(_mainColor + "Main")
-        }
-    })
+theme.updateInputs = function themeUpdate() {
+    inputs.update('themeSelector', storage.localGet('theme'), true)
+    inputs.update('mainColorSelector', storage.localGet('theme-color'), true)
 }
 
-theme.toggle = function toggleTheme() {
-    switch (localStorage.theme) {
-        case 'dark':
-            theme.set('light')
-            break;
-        case 'light':
-            theme.set('dark')
-            break;
-        default:
-            break;
-    }
-}
+theme.load = function themeLoad() {
+    theme.set(storage.localGet('theme'));
+    theme.color.set(storage.localGet('theme-color'));
 
-theme.load = function loadTheme() {
-    theme.set(localStorage.theme);
-    theme.setColor(localStorage.mainColor);
-}
-
-theme.updateSlides
-
-theme.changeSlider = class themeChangeSlider { // Precisa ser uma classe mesmo? :|
-    /**
-     * Cria um `input range` capaz de alterar o tema alvo.
-     * @param {"theme"|"color"} target 
-     * @param {{
-     *      background: "match"|"gradient"
-     *      type: "select"|"range"
-     * }} configs 
-     */
-    constructor(target, configs) {
-        this.target = target;
-        this.configs = {};
-        this.configs.background = configs.background;
-        this.configs.type = configs.type;
-
-        if (typeof configs.type !== "string" || configs.type == undefined) this.configs.type = "select"
-        if (typeof configs.background !== "string" || configs.type == undefined) this.configs.background = "match"
-        if (!configs.type.isIn(['select', 'range'])) this.configs.type = "select"
-        if (!configs.background.isIn(['match', 'gradient'])) this.configs.background = "match"
-
-        if (typeof this.target || this.target == undefined || !this.isIn(['theme', 'color'])) this.target = 'theme'
-    }
+    theme.updateInputs();
 }
 
     // Inputs Object and Methods
 
 const inputs = {}
 
-inputs.loadChecked = function inputAutoLoad(inputName, requiredValue, selectElement = false) { // Refazer para englobar inputs de radio, checkbox e select
+inputs.update = function inputUpdate(inputName, requiredValue, selectElement = false) { // Refazer para englobar inputs de radio, checkbox e select
     document.getElementsByName(inputName).forEach(element => {
         if (selectElement) {
             element.value = requiredValue;
@@ -238,13 +200,40 @@ inputs.applyEmptyPlaceholder = function inputApplyPlaceholder() {
     })
 }
 
-// Navigation
+    // Element Search and Methods
+
+const search = {};
+
+/**
+ * Procura por um elemento ou vários na página.
+ * @param {String} target 
+ * @param {"id"|"class"|"tag"|"name"} type 
+ * @returns {HTMLElement|HTMLCollection}
+ */
+search.element = function searchElement(target, type) { // ADICIONAR FILTRO, objeto com: ignoreClass: [], ignoreId: [], ignoreName: [], ignoreTag: [], ignoreProperty: { property: value|"all" };
+    if (typeof target !== "string") return
+    if (typeof type !== "string") return
+    if (!type.isIn(['id', 'class', 'tag', 'name'])) return
+
+    switch (type) {
+        case "class":
+            return document.getElementsByClassName(target)
+        case "id":
+            return document.getElementById(target)
+        case "tag":
+            return document.getElementsByTagName(target)
+        case "name":
+            return document.getElementsByTagName(target)
+    }
+}
+
+    // Navigation
 
 function navigateTo(destination) {
     window.location.href = destination;
 }
 
-// Pattern Classes
+    // Pattern Classes
 
 class patternList {
     constructor() {}
