@@ -1,9 +1,10 @@
 --------PAGE STRUCTURE
     #sidebar
     .summary-heading{1-6}
+    .overflow
 
 --------THEME
-theme.load
+theme.load | theme.changer
     "mainColorSelector"
     "themeSelector"
 

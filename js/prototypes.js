@@ -10,6 +10,12 @@ HTMLCollection.prototype.forEach = function HTMLCollectionForEach(callback) {
     }
 }
 
+HTMLCollection.prototype.addEventListener = function HTMLCollectionAddEventListener(event, method) {
+    this.forEach(element => {
+        element.addEventListener(event, method);
+    })
+}
+
 /**
  * Executa uma função baseada no valor atual do input
  * @param {Function(value, otherArgs)} executeFunction 

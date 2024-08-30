@@ -19,6 +19,10 @@ body {
     overflow-y: hidden;
 }
 
+body.overflow {
+    overflow-y: scroll;
+}
+
 /* Main and Sidebar */
 main {
     width: 100%;
