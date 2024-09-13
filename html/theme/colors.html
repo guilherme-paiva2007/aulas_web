@@ -14,8 +14,7 @@
     <body class="colorDisplay">
         <header class="ignorePatternWrite">
             <div class="line control">
-                <!-- <button onclick="theme.toggle()">alternar</button> -->
-                <select name="mainColorSelector" onchange="processValue(value => theme.setColor(value))">
+                <select name="mainColorSelector" onchange="processValue(value => theme.color.set(value))">
                     <option value="red">red</option>
                     <option value="orange">orange</option>
                     <option value="yellow">yellow</option>
@@ -26,7 +25,6 @@
                 <select name="themeSelector" onchange="processValue(value => theme.set(value))">
                     <option value="light">light</option>
                     <option value="dark">dark</option>
-                    <!-- <option value="beige">beige</option> -->
                 </select>
             </div>
         </header>

@@ -261,9 +261,9 @@ class patternElement {
         switch (this.type) {
             case "id":
                 let element = document.getElementById(this.target);
-                this.value = posValue(element, this.value, this.rewriteType);
                 if (!element) return;
                 if (!element.classList) return;
+                this.value = posValue(element, this.value, this.rewriteType);
                 if (element.classList.contains('ignorePatternWrite')) return;
                 element.innerHTML = this.value
                 break;
